@@ -88,9 +88,10 @@ def perform_eda(df: pd.DataFrame):
 
 # --- SIDEBAR CONFIGURATION ---
 st.sidebar.header("Configuration & Data Input")
-api_key = st.sidebar.text_input("Enter Groq / OpenAI API Key", type="password")
-model_name = st.sidebar.selectbox("Select Model", ["gpt-4o-mini", "llama-3.3-70b-versatile", "gpt-4o"])
-provider = "openai" if "gpt" in model_name else "groq"
+GROQ_api_key = st.sidebar.text_input("Groq_API_KEY")
+GOOGLE_API_KEY = st.sidebar.text_input("GOOGLE_API_KEY")
+model_name = st.sidebar.selectbox("Select Model", ["gemini-3.5-flash-lite", "llama-3.3-70b-versatile", "qwen/qwen3.6-27b"])
+provider = "gemini" if "3.5" in model_name else "groq"
 
 # If using groq, make sure provider/env is handled appropriately or passed via init_chat_model
 if api_key:
